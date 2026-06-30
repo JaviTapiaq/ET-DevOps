@@ -5,8 +5,8 @@ WORKDIR /app
 # Copiar el código fuente y el archivo pom.xml
 COPY pom.xml .
 COPY src ./src
-COPY mvnw .
-COPY .mvn ./.mvn
+#COPY mvnw .
+#COPY .mvn ./.mvn
 
 # Compilar omitiendo los tests
 RUN mvn clean package -DskipTests

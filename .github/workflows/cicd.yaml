@@ -39,7 +39,7 @@ jobs:
       - name: Crear repositorio ECR si no existe
         run: |
           aws ecr create-repository --repository-name front-despacho || true
-          
+
       - name: Build & push FRONTEND
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -49,6 +49,10 @@ jobs:
           docker push $ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG}
 
       # ---------- BACKEND VENTAS ----------
+      - name: Crear repositorio ECR Ventas si no existe
+        run: |
+          aws ecr create-repository --repository-name backend-ventas || true
+
       - name: Build & push BACKEND VENTAS
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -58,6 +62,10 @@ jobs:
           docker push $ECR_REGISTRY/${ECR_REPO_BACKEND_VENTAS}:${IMAGE_TAG}
 
       # ---------- BACKEND DESPACHOS ----------
+      - name: Crear repositorio ECR Despachos si no existe
+        run: |
+          aws ecr create-repository --repository-name backend-despachos || true
+          
       - name: Build & push BACKEND DESPACHOS
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
