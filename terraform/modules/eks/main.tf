@@ -106,16 +106,15 @@ resource "aws_eks_addon" "vpc_cni" {
   })
 }
 
-# Desactivado para evitar errores de permisos con CloudWatch Logs
-# resource "aws_eks_addon" "cloudwatch_observability" {
-#   cluster_name                = aws_eks_cluster.main.name
-#   addon_name                  = "amazon-cloudwatch-observability"
-#   resolve_conflicts_on_create = "OVERWRITE"
-# 
-#   tags = merge(var.tags, {
-#     Name = "${var.cluster_name}-cloudwatch-observability"
-#   })
-# }
+resource "aws_eks_addon" "cloudwatch_observability" {
+  cluster_name                = aws_eks_cluster.main.name
+  addon_name                  = "amazon-cloudwatch-observability"
+  resolve_conflicts_on_create = "OVERWRITE"
+
+  tags = merge(var.tags, {
+    Name = "${var.cluster_name}-cloudwatch-observability"
+  })
+}
 
 resource "aws_eks_addon" "metrics_server" {
   cluster_name                = aws_eks_cluster.main.name
