@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-despachos-springboot
+  name: backend-despachos
   namespace: innovatech
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: backend-despachos-springboot
+      app: backend-despachos
   template:
     metadata:
       labels:
-        app: backend-despachos-springboot
+        app: backend-despachos
     spec:
       containers:
-        - name: backend-despachos-springboot
+        - name: backend-despachos
           image: 118812498736.dkr.ecr.us-east-1.amazonaws.com/backend-despachos:eks-v1
           ports:
             - containerPort: 8081

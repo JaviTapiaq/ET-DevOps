@@ -7,14 +7,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: backend-ventas-springboot
+      app: backend-ventas
   template:
     metadata:
       labels:
-        app: backend-ventas-springboot
+        app: backend-ventas
     spec:
       containers:
-        - name: backend-ventas-springboot
+        - name: backend-ventas
           image: 118812498736.dkr.ecr.us-east-1.amazonaws.com/backend-ventas:eks-v1
           ports:
             - containerPort: 8080
