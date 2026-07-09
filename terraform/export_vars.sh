@@ -6,9 +6,9 @@
 #   source 00-export_vars.sh
 # ==============================================================================
 
-export AWS_ACCESS_KEY_ID="ASIA.."
-export AWS_SECRET_ACCESS_KEY=""
-export AWS_SESSION_TOKEN=""
+export AWS_ACCESS_KEY_ID="ASIA..."
+export AWS_SECRET_ACCESS_KEY="..."
+export AWS_SESSION_TOKEN="..."
 
 # After terraform apply, connect to the cluster with:
 #   aws eks update-kubeconfig --region us-east-1 --name tienda-eks
